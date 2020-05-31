@@ -10,6 +10,23 @@ MacOS / Time Machine options:
 
 Samba
 https://mudge.name/2019/11/12/using-a-raspberry-pi-for-time-machine/
+sudo nano /etc/samba/smb.conf
+[backups]
+    comment = Backups
+    path = /gitRepos
+    valid users = pi
+    browseable = yes
+    available = yes
+    writable = yes
+    public = yes
+    read only = no
+    vfs objects = catia fruit streams_xattr
+    fruit:time machine = yes
+    create mask = 0777
+    directory mask = 0777
+
+  
+
 
 or
 
