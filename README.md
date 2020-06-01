@@ -9,25 +9,15 @@ https://github.com/alhockly/pi-gitserver
 
 MacOS / Time Machine options:
 
-Samba
+Samba + avahi-deamon 
+
+1. create sparse disk image on mac, transfer to online disk
+2. mount .dmg on online disk
+3. run `sudo tmutil setdestination /Volumes/<dmg name>`
+4. open time machine in system prefs, start backup
+
 https://mudge.name/2019/11/12/using-a-raspberry-pi-for-time-machine/
-sudo nano /etc/samba/smb.conf
-[backups]
-    comment = Backups
-    path = /gitRepos
-    valid users = pi
-    browseable = yes
-    available = yes
-    writable = yes
-    public = yes
-    read only = no
-    vfs objects = catia fruit streams_xattr
-    fruit:time machine = yes
-    create mask = 0777
-    directory mask = 0777
-
-  
-
+https://www.imore.com/how-use-time-machine-backup-your-mac-windows-shared-folder
 
 or
 
