@@ -10,11 +10,18 @@ https://github.com/alhockly/pi-gitserver
 MacOS / Time Machine options:
 
 Samba + avahi-deamon 
-
-1. create sparse disk image on mac, transfer to online disk
-2. mount .dmg on online disk
-3. run `sudo tmutil setdestination /Volumes/<dmg name>`
-4. open time machine in system prefs, start backup
+pi
+1. setup fstab to mount your external disk (exFat or macOS Journled)
+2. setup samba and avahi-deamon on pi
+3. shutdown pi and connect the disk to mac via usb
+Mac
+1. create disk image on the external disk (Disk Utility > New Image > Blank Image), set Format to Mac OS Extended (Journaled)
+2. connect the disk back into the pi and boot up
+3. Finder > Go > Connect to server
+4. smb://<ip>  (or use bonjour .local address)
+5. double click the .dmg on the remote location to mount
+6. run `sudo tmutil setdestination /Volumes/<dmg name>` to enable timemachine to the disk
+7. open time machine in system prefs, start backup
 
 https://mudge.name/2019/11/12/using-a-raspberry-pi-for-time-machine/
 
