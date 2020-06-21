@@ -23,10 +23,11 @@ pi
 1. `lsblk` to show connected external devices and `sudo parted -l` to show disk partitions and file systems
 2. setup fstab to mount your external disk (ext4) https://askubuntu.com/a/165462 use `sudo mount -av` to mount
 e.g `/dev/sda1  /media/disk ext4 defaults,auto,uid=1000,gid=1000,users,rw,nofail 0 0`
-3. configure samba `sudo nano /etc/samba/smb.conf` and restart samba `sudo smbcontrol smbd reload-config`
-add user to samba `sudo smbpasswd -a <username>`
-https://wiki.samba.org/index.php/Configure_Samba_to_Work_Better_with_Mac_OS_X
-4. shutdown pi and connect the disk to mac via usb
+3. configure samba `sudo nano /etc/samba/smb.conf` , use the one below as a template. You should only need to change the lines under the `[Time Capsule]` definition
+	https://github.com/alhockly/pi-wireless-drive/blob/master/smb.conf
+4. restart samba `sudo smbcontrol smbd reload-config`
+5. add user to samba `sudo smbpasswd -a <username>`
+6. shutdown pi and connect the disk to mac via usb
 
 
 Mac
