@@ -23,6 +23,7 @@ pi
 e.g `/dev/sda1  /home/pi/disk exfat defaults,auto,uid=1000,gid=1000,users,rw,nofail 0 0`
 mount in home dir??
 3. configure samba `sudo nano /etc/samba/smb.conf` and restart samba `sudo smbcontrol smbd reload-config`
+add user to samba `smbpasswd -a <username>`
 https://wiki.samba.org/index.php/Configure_Samba_to_Work_Better_with_Mac_OS_X
 4. shutdown pi and connect the disk to mac via usb
 
