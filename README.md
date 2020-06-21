@@ -12,8 +12,9 @@ MacOS / Time Machine options:
 Samba + avahi-deamon 
 
 pi
+`sudo apt-get install exfat-fuse exfat-utils`
 
-1. `lsblk` to show external devices
+1. `lsblk` to show connected external devices and `sudo parted -l` to show disk partitions and file systems
 2. setup fstab to mount your external disk (exFat) https://askubuntu.com/a/165462 use `sudo mount -av` to mount
 e.g `/dev/sda1  /disk exfat defaults,auto,uid=1000,gid=1000,users,rw,nofail 0 1`
 mount in home dir??
