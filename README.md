@@ -16,7 +16,7 @@ Samba + avahi-deamon
 https://www.thedigitalpictureframe.com/installing-samba-on-your-raspberry-pi-buster-and-optimizing-it-for-macos-computers/
 
 pi
-`sudo apt-get install exfat-fuse exfat-utils samba avahi-daemon`
+`sudo apt-get install exfat-fuse exfat-utils samba avahi-daemon` say no Samba config?
 0. change the pi host name `sudo nano /etc/hostname`
 1. `lsblk` to show connected external devices and `sudo parted -l` to show disk partitions and file systems
 2. setup fstab to mount your external disk (exFat) https://askubuntu.com/a/165462 use `sudo mount -av` to mount
