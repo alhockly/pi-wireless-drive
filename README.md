@@ -12,36 +12,33 @@ MacOS / Time Machine options:
 Samba + avahi-deamon 
 [install samba on pi] https://mudge.name/2019/11/12/using-a-raspberry-pi-for-time-machine/
 [time machine on remote share] https://www.imore.com/how-use-time-machine-backup-your-mac-windows-shared-folder
-
+https://wiki.samba.org/index.php/Configure_Samba_to_Work_Better_with_Mac_OS_X
 https://www.thedigitalpictureframe.com/installing-samba-on-your-raspberry-pi-buster-and-optimizing-it-for-macos-computers/
 
+you must you a ext4 file system for this method
+
 pi
-`sudo apt-get install exfat-fuse exfat-utils samba avahi-daemon` say no Samba config?
-0. change the pi host name `sudo nano /etc/hostname`
+`sudo apt-get install samba avahi-daemon` say no in Samba config
+0. change the pi host name in `sudo nano /etc/hostname` and `sudo nano /etc/hosts` , format disk to ext4 e.g `sudo mkfs.ext4 /dev/<disk parition>`
 1. `lsblk` to show connected external devices and `sudo parted -l` to show disk partitions and file systems
-2. setup fstab to mount your external disk (exFat) https://askubuntu.com/a/165462 use `sudo mount -av` to mount
-e.g `/dev/sda1  /home/pi/disk exfat defaults,auto,uid=1000,gid=1000,users,rw,nofail 0 0`
-mount in home dir??
+2. setup fstab to mount your external disk (ext4) https://askubuntu.com/a/165462 use `sudo mount -av` to mount
+e.g `/dev/sda1  /media/disk ext4 defaults,auto,uid=1000,gid=1000,users,rw,nofail 0 0`
 3. configure samba `sudo nano /etc/samba/smb.conf` and restart samba `sudo smbcontrol smbd reload-config`
-add user to samba `smbpasswd -a <username>`
+add user to samba `sudo smbpasswd -a <username>`
 https://wiki.samba.org/index.php/Configure_Samba_to_Work_Better_with_Mac_OS_X
 4. shutdown pi and connect the disk to mac via usb
 
 
 Mac
-
-1. create disk image on the external disk (Disk Utility > New Image > Blank Image), set Format to Mac OS Extended (Journaled)
-2. connect the disk back into the pi and boot up
-3. Finder > Go > Connect to server
-4. smb://<ip>  (or use bonjour .local address)
-5. double click the .dmg on the remote location to mount
-6. run `sudo tmutil setdestination /Volumes/<dmg name>` to enable timemachine to the disk
-7. open time machine in system prefs, start backup
+1. check network in finder and you should see the samba share by its hostname. if not go to Finder > Go > Connect to server then ender smb://<ip address>
+2.open time machine in system prefs, select the network disk
+3. start backup
 
 
 
 pi
-1. (if using a disk) `sudo apt install hdparm`
+1. (if using a spinning disk) 
+`sudo apt install hdparm`
 `sudo hdparm -S 120 /dev/disk/by-uuid/e613b4f3-7fb8-463a-a65d-42a14148ea65`
 We can make this permanent by adding the following stanza to /etc/hdparm.conf:
 
@@ -50,10 +47,7 @@ We can make this permanent by adding the following stanza to /etc/hdparm.conf:
 }
 
 
-~or afp~ is deprecated
+~AFP~ is deprecated
 ~https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/APFS_Guide/FAQ/FAQ.html#//apple_ref/doc/uid/TP40016999-CH6-DontLinkElementID_1~
 
 
-------
-Nas:  
-pi + OpenMediaServer
