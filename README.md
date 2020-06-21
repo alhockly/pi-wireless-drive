@@ -13,16 +13,19 @@ Samba + avahi-deamon
 [install samba on pi] https://mudge.name/2019/11/12/using-a-raspberry-pi-for-time-machine/
 [time machine on remote share] https://www.imore.com/how-use-time-machine-backup-your-mac-windows-shared-folder
 
-pi
-`sudo apt-get install exfat-fuse exfat-utils`
+https://www.thedigitalpictureframe.com/installing-samba-on-your-raspberry-pi-buster-and-optimizing-it-for-macos-computers/
 
+pi
+`sudo apt-get install exfat-fuse exfat-utils samba avahi-daemon`
+0. change the pi host name `sudo nano /etc/hostname`
 1. `lsblk` to show connected external devices and `sudo parted -l` to show disk partitions and file systems
 2. setup fstab to mount your external disk (exFat) https://askubuntu.com/a/165462 use `sudo mount -av` to mount
-e.g `/dev/sda1  /disk exfat defaults,auto,uid=1000,gid=1000,users,rw,nofail 0 1`
+e.g `/dev/sda1  /home/pi/disk exfat defaults,auto,uid=1000,gid=1000,users,rw,nofail 0 0`
 mount in home dir??
-3. setup samba and avahi-deamon on pi
+3. configure samba `sudo nano /etc/samba/smb.conf` and restart samba `sudo smbcontrol smbd reload-config`
 https://wiki.samba.org/index.php/Configure_Samba_to_Work_Better_with_Mac_OS_X
 4. shutdown pi and connect the disk to mac via usb
+
 
 Mac
 
@@ -34,6 +37,16 @@ Mac
 6. run `sudo tmutil setdestination /Volumes/<dmg name>` to enable timemachine to the disk
 7. open time machine in system prefs, start backup
 
+
+
+pi
+1. (if using a disk) `sudo apt install hdparm`
+`sudo hdparm -S 120 /dev/disk/by-uuid/e613b4f3-7fb8-463a-a65d-42a14148ea65`
+We can make this permanent by adding the following stanza to /etc/hdparm.conf:
+
+/dev/disk/by-uuid/e613b4f3-7fb8-463a-a65d-42a14148ea65 {
+	spindown_time = 120
+}
 
 
 ~or afp~ is deprecated
