@@ -11,9 +11,13 @@ MacOS / Time Machine options:
 
 Samba + avahi-deamon 
 pi
-1. setup fstab to mount your external disk (exFat or macOS Journled) https://askubuntu.com/a/165462 use `sudo mount -a` to test the mount
-2. setup samba and avahi-deamon on pi
-3. shutdown pi and connect the disk to mac via usb
+
+1. `lsblk` to show external devices
+2. setup fstab to mount your external disk (exFat) https://askubuntu.com/a/165462 use `sudo mount -av` to mount
+e.g `/dev/sda1  /disk exfat defaults,auto,uid=1000,gid=1000,users,rw,nofail 0 1`
+
+3. setup samba and avahi-deamon on pi
+4. shutdown pi and connect the disk to mac via usb
 Mac
 1. create disk image on the external disk (Disk Utility > New Image > Blank Image), set Format to Mac OS Extended (Journaled)
 2. connect the disk back into the pi and boot up
