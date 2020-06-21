@@ -21,8 +21,9 @@ pi
 `sudo apt-get install samba avahi-daemon` say no in Samba config
 0. change the pi host name in `sudo nano /etc/hostname` and `sudo nano /etc/hosts` , format disk to ext4 e.g `sudo mkfs.ext4 /dev/<disk parition>`
 1. `lsblk` to show connected external devices and `sudo parted -l` to show disk partitions and file systems
-2. setup fstab to mount your external disk (ext4) https://askubuntu.com/a/165462 use `sudo mount -av` to mount
-e.g `/dev/sda1  /media/disk ext4 defaults,auto,uid=1000,gid=1000,users,rw,nofail 0 0`
+2. ~setup fstab to mount your external disk (ext4) https://askubuntu.com/a/165462 use `sudo mount -av` to mount
+e.g `/dev/sda1  /media/disk ext4 defaults,auto,uid=1000,gid=1000,users,rw,nofail 0 0`~
+2. add `sudo mount /dev/sda1 /media/disk` to crontab. (`crontab -e`) 
 3. configure samba `sudo nano /etc/samba/smb.conf` , use the one below as a template. You should only need to change the lines under the `[Time Capsule]` definition
 	https://github.com/alhockly/pi-wireless-drive/blob/master/smb.conf
 4. restart samba `sudo smbcontrol smbd reload-config`
