@@ -31,8 +31,8 @@ e.g `/dev/sda1  /media/disk ext4 defaults,auto,uid=1000,gid=1000,users,rw,nofail
 
 
 Mac
-1. check network in finder and you should see the samba share by its hostname. if not go to Finder > Go > Connect to server then ender smb://<ip address>
-2.open time machine in system prefs, select the network disk
+1. check network in finder and you should see the samba share by its hostname. if not go to Finder > Go > Connect to server then ender smb:// <ip address>
+2. open time machine in system prefs, select the network disk
 3. start backup
 
 
