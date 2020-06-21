@@ -16,7 +16,9 @@ pi
 1. `lsblk` to show external devices
 2. setup fstab to mount your external disk (exFat) https://askubuntu.com/a/165462 use `sudo mount -av` to mount
 e.g `/dev/sda1  /disk exfat defaults,auto,uid=1000,gid=1000,users,rw,nofail 0 1`
+mount in home dir??
 3. setup samba and avahi-deamon on pi
+https://wiki.samba.org/index.php/Configure_Samba_to_Work_Better_with_Mac_OS_X
 4. shutdown pi and connect the disk to mac via usb
 
 Mac
