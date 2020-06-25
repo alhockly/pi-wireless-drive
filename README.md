@@ -43,14 +43,15 @@ Mac
 
 
 pi
-1. (if using a spinning disk) 
-`sudo apt install hdparm`
-`sudo hdparm -S 120 /dev/disk/by-uuid/e613b4f3-7fb8-463a-a65d-42a14148ea65`
-We can make this permanent by adding the following stanza to /etc/hdparm.conf:
+1. (if using a spinning disk) `sudo apt install hdparm`
+2. use `blkid` to find the uuid of the disk you are using
+3. `sudo hdparm -S 120 /dev/disk/by-uuid/ \< uuid of disk\>`
+4. We can make this permanent by adding a stanza to /etc/hdparm.conf:
 
-/dev/disk/by-uuid/e613b4f3-7fb8-463a-a65d-42a14148ea65 {
-	spindown_time = 120
-}
+eg.
+
+>/dev/disk/by-uuid/e613b4f3-7fb8-463a-a65d-42a14148ea65 {
+>	spindown_time = 120}
 
 
 ~AFP~ is deprecated
