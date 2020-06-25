@@ -9,11 +9,14 @@ https://github.com/alhockly/pi-gitserver
 -----
 MacOS / Time Machine options:
 
-Samba + avahi-deamon 
-[install samba on pi] https://mudge.name/2019/11/12/using-a-raspberry-pi-for-time-machine/
-[time machine on remote share] https://www.imore.com/how-use-time-machine-backup-your-mac-windows-shared-folder
-https://wiki.samba.org/index.php/Configure_Samba_to_Work_Better_with_Mac_OS_X
-https://www.thedigitalpictureframe.com/installing-samba-on-your-raspberry-pi-buster-and-optimizing-it-for-macos-computers/
+Samba + avahi-deamon
+
+some articles I used
+
+>[install samba on pi] https://mudge.name/2019/11/12/using-a-raspberry-pi-for-time-machine/
+>[time machine on remote share] https://www.imore.com/how-use-time-machine-backup-your-mac-windows-shared-folder
+>https://wiki.samba.org/index.php/Configure_Samba_to_Work_Better_with_Mac_OS_X
+>https://www.thedigitalpictureframe.com/installing-samba-on-your-raspberry-pi-buster-and-optimizing-it-for-macos-computers/
 
 you must you a ext4 file system for this method
 
@@ -34,7 +37,7 @@ e.g `/dev/sda1  /media/disk ext4 defaults,auto,uid=1000,gid=1000,users,rw,nofail
 
 
 Mac
-1. check network in finder and you should see the samba share by its hostname. if not go to Finder > Go > Connect to server then ender smb:// <ip address>
+1. check network in finder and you should see the samba share by its hostname. if not go to Finder > Go > Connect to server then enter smb:// \<ip address\>
 2. open time machine in system prefs, select the network disk
 3. start backup
 
