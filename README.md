@@ -17,8 +17,10 @@ https://www.thedigitalpictureframe.com/installing-samba-on-your-raspberry-pi-bus
 
 you must you a ext4 file system for this method
 
-pi
+pi 
+ 
 `sudo apt-get install samba avahi-daemon` say no in Samba config
+
 0. change the pi host name in `sudo nano /etc/hostname` and `sudo nano /etc/hosts` , format disk to ext4 e.g `sudo mkfs.ext4 /dev/<disk parition>`
 1. `lsblk` to show connected external devices and `sudo parted -l` to show disk partitions and file systems
 2. ~setup fstab to mount your external disk (ext4) https://askubuntu.com/a/165462 use `sudo mount -av` to mount
@@ -35,7 +37,6 @@ Mac
 1. check network in finder and you should see the samba share by its hostname. if not go to Finder > Go > Connect to server then ender smb:// <ip address>
 2. open time machine in system prefs, select the network disk
 3. start backup
-
 
 
 pi
