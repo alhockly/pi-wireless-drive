@@ -45,12 +45,13 @@ eg.
 >/dev/disk/by-uuid/e613b4f3-7fb8-463a-a65d-42a14148ea65 {
 >	spindown_time = 120}
 
-(if you want to make the enclosure) - requires M3 & M5 bolts
+(if you want to make the enclosure) - requires (M2,7 or M3) & M5 bolts
 1. print the main body. The orientation should have the mouth of the drive enclosure pointing upwards
 2. print the pi cover
 3. connect power and usb hub cables to pi
-4. screw bolts through the pi cover, the pi itself and into the main body
-34
+4. decide if you want to drill the mounting holes on your pi wider to accomedate M3 bolts (I did, with a hand drill)
+5. screw bolts through the pi cover, the pi itself and into the main body
+6. insert the hdd into the enclosure and screw in M5 bolts to stop it from falling out
 
 
 
