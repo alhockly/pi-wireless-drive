@@ -7,18 +7,10 @@ for small files consider a pi git repo:
 https://github.com/alhockly/pi-gitserver
 
 -----
-MacOS / Time Machine options:
+MacOS / Time Machine options: (This is just a samba (smb) server with config for TimeMachine on MacOS, it is also accessible on Windows as a network drive)
 
-Samba + avahi-deamon
-
-some articles I used
-
->[install samba on pi] https://mudge.name/2019/11/12/using-a-raspberry-pi-for-time-machine/
->[time machine on remote share] https://www.imore.com/how-use-time-machine-backup-your-mac-windows-shared-folder
->https://wiki.samba.org/index.php/Configure_Samba_to_Work_Better_with_Mac_OS_X
->https://www.thedigitalpictureframe.com/installing-samba-on-your-raspberry-pi-buster-and-optimizing-it-for-macos-computers/
-
-you must you a ext4 file system for this method
+requires: pi zero (or pi zero wireless), usb hub, usb-ethernet adapter (or usb wifi), usb HDD
+You must you a ext4 file system for this method
 
 pi 
  
@@ -41,17 +33,33 @@ Mac
 2. open time machine in system prefs, select the network disk
 3. start backup
 
+(if using a spinning disk)
 
 pi
-1. (if using a spinning disk) `sudo apt install hdparm`
+1.  `sudo apt install hdparm`
 2. use `blkid` to find the uuid of the disk you are using
 3. `sudo hdparm -S 120 /dev/disk/by-uuid/ \< uuid of disk\>`
 4. We can make this permanent by adding a stanza to /etc/hdparm.conf:
 
 eg.
-
 >/dev/disk/by-uuid/e613b4f3-7fb8-463a-a65d-42a14148ea65 {
 >	spindown_time = 120}
+
+(if you want to make the enclosure) - requires M3 & M5 bolts
+1. print the main body. The orientation should have the mouth of the drive enclosure pointing upwards
+2. print the pi cover
+3. connect power and usb hub cables to pi
+4. screw bolts through the pi cover, the pi itself and into the main body
+34
+
+
+
+some articles I used
+
+>[install samba on pi] https://mudge.name/2019/11/12/using-a-raspberry-pi-for-time-machine/
+>[time machine on remote share] https://www.imore.com/how-use-time-machine-backup-your-mac-windows-shared-folder
+>https://wiki.samba.org/index.php/Configure_Samba_to_Work_Better_with_Mac_OS_X
+>https://www.thedigitalpictureframe.com/installing-samba-on-your-raspberry-pi-buster-and-optimizing-it-for-macos-computers/
 
 
 ~AFP~ is deprecated
