@@ -25,7 +25,7 @@ e.g `/dev/sda1  /media/disk ext4 defaults,auto,uid=1000,gid=1000,users,rw,nofail
 2. add `sudo mount /dev/sda1 /media/disk` to crontab. (`crontab -e`) 
 3. configure samba `sudo nano /etc/samba/smb.conf` , use the one below as a template. You should only need to change the lines under the `[Time Capsule]` definition
 	https://github.com/alhockly/pi-wireless-drive/blob/master/smb.conf
-4. restart samba `sudo service smbd reload`
+4. restart samba `sudo service smbd restart`
 5. add user to samba `sudo smbpasswd -a <username>`
 6. shutdown pi and connect the disk to mac via usb
 
