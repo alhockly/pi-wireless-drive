@@ -9,6 +9,8 @@ https://github.com/alhockly/pi-gitserver
 -----
 MacOS / Time Machine options: (This is just a samba (smb) server with config for TimeMachine on MacOS, it is also accessible on Windows as a network drive)
 
+Samba docs: https://www.samba.org/samba/docs/current/man-html/samba.7.html
+
 requires: pi zero (or pi zero wireless), usb hub, usb-ethernet adapter (or usb wifi), usb HDD
 You must you a ext4 file system for this method
 
