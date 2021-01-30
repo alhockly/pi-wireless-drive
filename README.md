@@ -29,6 +29,7 @@ e.g `/dev/sda1  /media/disk ext4 defaults,auto,uid=1000,gid=1000,users,rw,nofail
 4. check config is correct with `sudo testparm -s`
 5. restart samba `sudo service smbd restart`
 6. add user to samba `sudo smbpasswd -a <username>`
+7. enable new user `sudo smbpasswd -e <username>`
 7. shutdown pi and connect the disk to mac via usb
 
 
