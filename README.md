@@ -35,8 +35,10 @@ e.g `/dev/sda1  /media/disk ext4 defaults,auto,uid=1000,gid=1000,users,rw,nofail
 
 Mac
 1. check network in finder and you should see the samba share by its hostname. if not go to Finder > Go > Connect to server then enter smb:// \<ip address\>
-2. open time machine in system prefs, select the network disk
-3. start backup
+2. use diskUtility to save a sparsebundle image on the samba share
+3. mount the spare bundle
+4. run `sudo tmutil setdestination /Volumes/<bundle name>`
+5. add time machine backup in system preferences
 
 (if using a spinning disk)
 
