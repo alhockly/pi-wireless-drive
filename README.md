@@ -17,6 +17,7 @@ You must you a ext4 file system for this method
 pi 
  
 `sudo apt-get install samba avahi-daemon` say no in Samba config
+SAMBA VERSION MUST BE 4.8 OR HIGHER. You can check your version using `smbd -V`
 
 0. change the pi host name in `sudo nano /etc/hostname` and `sudo nano /etc/hosts` , format disk to ext4 e.g `sudo mkfs.ext4 /dev/<disk parition>`
 1. `lsblk` to show connected external devices and `sudo parted -l` to show disk partitions and file systems
@@ -30,7 +31,8 @@ e.g `/dev/sda1  /media/disk ext4 defaults,auto,uid=1000,gid=1000,users,rw,nofail
 5. restart samba `sudo service smbd restart`
 6. add user to samba `sudo smbpasswd -a <username>`
 7. enable new user `sudo smbpasswd -e <username>`
-7. shutdown pi and connect the disk to mac via usb
+8. copy timemachine.service from this repo to /etc/avahi/services
+9. shutdown pi and connect the disk to mac via usb
 
 
 Mac
