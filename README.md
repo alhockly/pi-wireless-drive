@@ -17,7 +17,9 @@ You must you a ext4 file system for this method
 pi 
  
 `sudo apt-get install samba avahi-daemon` say no in Samba config
+
 SAMBA VERSION MUST BE 4.8 OR HIGHER. You can check your version using `smbd -V`
+If samba 4.8 or higher is not available for your distro you may have to build it from source https://www.linuxsecrets.com/samba-wiki/index.php/Build_Samba_from_Source.html
 
 0. change the pi host name in `sudo nano /etc/hostname` and `sudo nano /etc/hosts` , format disk to ext4 e.g `sudo mkfs.ext4 /dev/<disk parition>`
 1. `lsblk` to show connected external devices and `sudo parted -l` to show disk partitions and file systems
