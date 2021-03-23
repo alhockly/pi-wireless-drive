@@ -19,8 +19,13 @@ pi
 `sudo apt-get install samba avahi-daemon` say no in Samba config
 
 SAMBA VERSION MUST BE 4.8 OR HIGHER. You can check your version using `smbd -V`
-If samba 4.8 or higher is not available for your distro you may have to build it from source https://www.linuxsecrets.com/samba-wiki/index.php/Build_Samba_from_Source.html
-or https://launchpad.net/~linux-schools/+archive/ubuntu/samba-latest/+packages
+If samba 4.8 or higher is not available for your distro/archtecture you may find it on launchpad:
+https://launchpad.net/~linux-schools/+archive/ubuntu/samba-latest/+packages
+or at the van belle apt repo
+http://apt.van-belle.nl/
+
+alternatively it can be build from source but this is not for the faint of heart
+https://www.linuxsecrets.com/samba-wiki/index.php/Build_Samba_from_Source.html
 
 0. change the pi host name in `sudo nano /etc/hostname` and `sudo nano /etc/hosts` , format disk to ext4 e.g `sudo mkfs.ext4 /dev/<disk parition>`
 1. `lsblk` to show connected external devices and `sudo parted -l` to show disk partitions and file systems
