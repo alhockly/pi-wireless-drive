@@ -20,6 +20,7 @@ pi
 
 SAMBA VERSION MUST BE 4.8 OR HIGHER. You can check your version using `smbd -V`
 If samba 4.8 or higher is not available for your distro you may have to build it from source https://www.linuxsecrets.com/samba-wiki/index.php/Build_Samba_from_Source.html
+or https://launchpad.net/~linux-schools/+archive/ubuntu/samba-latest/+packages
 
 0. change the pi host name in `sudo nano /etc/hostname` and `sudo nano /etc/hosts` , format disk to ext4 e.g `sudo mkfs.ext4 /dev/<disk parition>`
 1. `lsblk` to show connected external devices and `sudo parted -l` to show disk partitions and file systems
@@ -72,6 +73,7 @@ some articles I used
 >[time machine on remote share] https://www.imore.com/how-use-time-machine-backup-your-mac-windows-shared-folder
 >https://wiki.samba.org/index.php/Configure_Samba_to_Work_Better_with_Mac_OS_X
 >https://www.thedigitalpictureframe.com/installing-samba-on-your-raspberry-pi-buster-and-optimizing-it-for-macos-computers/
+>https://surrouter.asuscomm.com/surblog/2019/05/05/mac-timemachine-with-samba-4-8-on-ubuntu-18-10/
 
 
 ~AFP~ is deprecated
